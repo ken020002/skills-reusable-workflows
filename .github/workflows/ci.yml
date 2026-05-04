@@ -13,3 +13,14 @@ jobs:
     uses: ./.github/workflows/reusable-node-quality.yml
     with:
       node-version: 24
+
+  github-pages:
+    name: Deploy to GitHub Pages
+    needs: quality
+    uses: ./.github/workflows/deploy-pages.yml
+    with:
+      node-version: "24"
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
